@@ -1,22 +1,33 @@
-<!--
-  ~ Copyright (c) 2016 VMware, Inc. All Rights Reserved.
-  ~ This software is released under MIT license.
-  ~ The full license information can be found in LICENSE in the root directory of this project.
-  -->
-<p>This is a Clarity seed application. This is the default page that loads for the application.</p>
-
-<clr-dropdown [clrMenuPosition]="'bottom-right'">
-    <button class="btn btn-outline-primary" clrDropdownToggle>
-        Dropdown
-        <clr-icon shape="caret down"></clr-icon>
-    </button>
-    <div class="dropdown-menu">
-        <label class="dropdown-header">Dropdown header</label>
-        <a href="javascript://" clrDropdownItem>Action 1</a>
-        <a href="javascript://" clrDropdownItem>Action 2</a>
-        <a href="javascript://" class="disabled" clrDropdownItem>Disabled</a>
-        <div class="dropdown-divider"></div>
-        <a href="javascript://" clrDropdownItem>Link 1</a>
-        <a href="javascript://" clrDropdownItem>Link 2</a>
+<div class="row flex-items-xs-center flex-items-xs-middle">
+    <div *ngIf="isLoading$ | async" class="col-xs-2 col-sm-1">
+        <div class="spinner"></div>
     </div>
-</clr-dropdown>
+</div>
+<div class="row">
+    <div *ngFor="let pic of recentFlickrPics; let i = index; trackBy:trackFbObjects" class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+        <a href="{{ pic.url_o }}" target="_blank" class="card clickable">
+            <div class="card-img">
+                <img [src]="pic.url_q" alt="{{ pic.title }}" />
+            </div>
+            <div class="card-block">
+                <div class="progress top">
+                    <progress value="100" max="100"></progress>
+                </div>
+                <h4 class="card-title">{{ pic.title | slice:0:30 }}</h4>
+                <clr-icon shape="user" class="is-info"></clr-icon> <label>{{ pic.ownername }}</label>
+                <p class="card-text">
+                    <clr-icon shape="upload" class="is-info" size="12"></clr-icon>
+                    <span class="p7"> {{ pic.dateupload * 1000 | date: 'yMMMdjms' }}
+                    </span>
+                </p>
+            </div>
+        </a>
+    </div>
+</div>
+<br>
+<br>
+<div class="row flex-items-xs-center flex-items-xs-middle">
+    <div *ngIf="isLoadingMore$ | async" class="col-xs-2 col-sm-1">
+        <span class="spinner spinner-inline"></span><span> Loading...</span>
+    </div>
+</div>

@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ClarityModule } from 'clarity-angular';
 import { AppComponent } from './app.component';
-import { ROUTING } from "./app.routing";
-import { HomeComponent } from "./home/home.component";
-import { AboutComponent } from "./about/about.component";
+import { ROUTING } from './app.routing';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { HomeComponent } from './home/home.component';
+import { HomeService } from './home/home.service';
 
 @NgModule({
     declarations: [
         AppComponent,
-        AboutComponent,
         HomeComponent
     ],
     imports: [
@@ -19,9 +19,10 @@ import { AboutComponent } from "./about/about.component";
         FormsModule,
         HttpModule,
         ClarityModule,
-        ROUTING
+        ROUTING,
+        InfiniteScrollModule
     ],
-    providers: [],
+    providers: [HomeService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
