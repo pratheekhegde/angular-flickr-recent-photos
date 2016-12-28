@@ -5,7 +5,7 @@
 </div>
 <div class="row">
     <div *ngFor="let pic of recentFlickrPics; let i = index; trackBy:trackFbObjects" class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-        <a href="{{ pic.url_o }}" target="_blank" class="card clickable">
+        <a href="https://www.flickr.com/photos/{{ pic.owner }}/{{ pic.id }}" target="_blank" class="card clickable">
             <div class="card-img">
                 <img [src]="pic.url_q" alt="{{ pic.title }}" />
             </div>
