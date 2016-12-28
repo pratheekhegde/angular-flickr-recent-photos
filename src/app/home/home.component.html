@@ -10,9 +10,6 @@
                 <img [src]="pic.url_q" alt="{{ pic.title }}" />
             </div>
             <div class="card-block">
-                <div class="progress top">
-                    <progress value="100" max="100"></progress>
-                </div>
                 <h4 class="card-title">{{ pic.title | slice:0:30 }}</h4>
                 <clr-icon shape="user" class="is-info"></clr-icon> <label>{{ pic.ownername }}</label>
                 <p class="card-text">

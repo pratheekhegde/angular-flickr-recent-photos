@@ -27,12 +27,10 @@ export class HomeComponent implements OnInit {
         this.homeService.flickrPics$.subscribe(pics => {
             if (pics !== null) {
                 this.recentFlickrPics = this.recentFlickrPics.concat(pics);
-                console.log(pics);
             }
         });
     }
     trackFbObjects = (index, item) => {
-        console.log(index);
         return item.id;
     }
 }

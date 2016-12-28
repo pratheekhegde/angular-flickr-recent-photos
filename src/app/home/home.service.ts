@@ -17,23 +17,25 @@ export class HomeService {
     constructor(private _http: Http) { };
 
     getFlickrPics(page): any {
-        this.isLoading$.next(true);
         // Dont show loading more for first page
         if (page > 1) {
             this.isLoadingMore$.next(true);
             this.resultsPerPage = 12;
+        } else {
+            this.isLoading$.next(true);
         }
         // https://www.flickr.com/services/api/explore/flickr.photos.getRecent
         let url = `https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=${this.key}&extras=owner_name,date_upload,url_q,url_o&per_page=${this.resultsPerPage}&page=${page}&format=json&nojsoncallback=1`;
         this._http
             .get(url)
             .subscribe((res) => {
-// this._allPics = this._allPics.concat(res.json().photos.photo);
+                // this._allPics = this._allPics.concat(res.json().photos.photo);
                 this.flickrPics$.next(res.json().photos.photo);
-                this.isLoading$.next(false);
                 // Dont show loading more for first page
                 if (page > 1) {
                     this.isLoadingMore$.next(false);
+                } else {
+                    this.isLoading$.next(false);
                 }
             });
         return;
