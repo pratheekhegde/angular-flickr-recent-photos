@@ -9,8 +9,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HomeService } from './home.service';
 
 @Component({
-    styleUrls: ['home.component.scss'],
-    templateUrl: 'home.component.html',
+    styleUrls: ['./home.component.scss'],
+    templateUrl: './home.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {

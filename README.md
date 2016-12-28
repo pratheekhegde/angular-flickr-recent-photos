@@ -22,6 +22,10 @@ ng build
 
 # prod build
 ng build --prod
+
+# prod AOT build
+ng build --prod --aot
+
 ```
 
 The app is generated from [clarity-seed](https://github.com/vmware/clarity-seed).

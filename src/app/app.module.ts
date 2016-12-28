@@ -18,7 +18,7 @@ import { HomeService } from './home/home.service';
         BrowserModule,
         FormsModule,
         HttpModule,
-        ClarityModule,
+        ClarityModule.forRoot(),
         ROUTING,
         InfiniteScrollModule
     ],
