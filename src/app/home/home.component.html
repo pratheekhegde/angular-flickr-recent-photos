@@ -10,7 +10,7 @@
                 <img [src]="pic.url_q" alt="{{ pic.title }}" />
             </div>
             <div class="card-block">
-                <h4 class="card-title">{{ pic.title | slice:0:30 }}</h4>
+                <h4 class="card-title" style="text-overflow:ellipsis; overflow:hidden">{{ pic.title | slice:0:30 }}</h4>
                 <clr-icon shape="user" class="is-info"></clr-icon> <label>{{ pic.ownername }}</label>
                 <p class="card-text">
                     <clr-icon shape="upload" class="is-info" size="12"></clr-icon>
