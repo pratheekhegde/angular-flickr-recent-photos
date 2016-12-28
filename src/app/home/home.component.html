@@ -1,6 +1,6 @@
-<div class="row flex-items-xs-center flex-items-xs-middle">
-    <div *ngIf="isLoading$ | async" class="col-xs-2 col-sm-1">
-        <div class="spinner"></div>
+<div  *ngIf="isLoading$ | async" class="row">
+    <div class="col-xs-12 text-center">
+        <span class="spinner spinner-inline"></span><span> Loading...</span>
     </div>
 </div>
 <div class="row">
@@ -23,8 +23,8 @@
 </div>
 <br>
 <br>
-<div class="row flex-items-xs-center flex-items-xs-middle">
-    <div *ngIf="isLoadingMore$ | async" class="col-xs-2 col-sm-1">
+<div class="row">
+    <div *ngIf="isLoadingMore$ | async" class="col-xs-12 text-center">
         <span class="spinner spinner-inline"></span><span> Loading...</span>
     </div>
 </div>
